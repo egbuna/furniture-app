@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.furnitureapp.MainActivity
@@ -17,6 +18,7 @@ import com.example.furnitureapp.MyApplication
 import com.example.furnitureapp.R
 import com.example.furnitureapp.base.BaseFragment
 import com.example.furnitureapp.data.mock.MockHelper
+import com.example.furnitureapp.di.inject
 import com.example.furnitureapp.ui.home.HomeItemAdapter
 import com.example.furnitureapp.ui.home.HomeViewModel
 import javax.inject.Inject
@@ -56,6 +58,8 @@ class LivingRoomFragment : BaseFragment() {
         mNewArrivalRecyclerView.layoutManager = mLinearLayoutManager
         mNewArrivalRecyclerView.adapter = mNewArrivalAdapter
 
+        //val model = ViewModelProviders.of(this)[HomeViewModel::class.java]
+
         mHomeViewModel.furnitureItems.observe(this, Observer {
             mNewArrivalAdapter.add(items = ArrayList(it))
         })
@@ -63,15 +67,13 @@ class LivingRoomFragment : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?): View? {
-
-
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_living_room, container, false)
     }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        (activity!!.application as MyApplication).appComponent.inject(this)
+            inject(application = (activity?.application as MyApplication))
     }
 
     companion object {

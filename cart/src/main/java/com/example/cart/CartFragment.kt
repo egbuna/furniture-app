@@ -1,14 +1,15 @@
-package com.example.furnitureapp.ui.cart
-
+package com.example.cart
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kotlin.concurrent.fixedRateTimer
 
-import com.example.furnitureapp.R
-
+/**
+ * A simple [Fragment] subclass.
+ */
 class CartFragment : Fragment() {
 
     override fun onCreateView(
@@ -22,9 +23,6 @@ class CartFragment : Fragment() {
     companion object {
         fun newInstance(): CartFragment {
             val fragment = CartFragment()
-            val args = Bundle()
-            fragment.arguments = args
-
             return fragment
         }
     }

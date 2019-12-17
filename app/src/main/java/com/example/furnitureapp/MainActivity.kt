@@ -4,11 +4,11 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.MenuItem
 import androidx.fragment.app.Fragment
+import com.example.cart.CartFragment
 import com.example.furnitureapp.base.BaseActivity
-import com.example.furnitureapp.ui.cart.CartFragment
 import com.example.furnitureapp.ui.favourite.FavouriteFragment
 import com.example.furnitureapp.ui.home.HomeFragment
-import com.example.furnitureapp.ui.profile.ProfileFragment
+import com.example.profile.ProfileFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx
 import com.ncapdevi.fragnav.FragNavController
@@ -80,7 +80,6 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
     }
 
     override val numberOfRootFragments: Int = 4
-
 
     override fun getRootFragment(index: Int): Fragment {
         return when (index) {

@@ -1,5 +1,6 @@
 package com.example.furnitureapp.ui.home
 
+import com.example.core.dagger.scope.FeatureScope
 import com.example.furnitureapp.data.local.dao.FurnitureDao
 import com.example.furnitureapp.data.mock.MockHelper
 import com.example.furnitureapp.data.model.HomeItem
@@ -10,7 +11,7 @@ import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 import javax.inject.Singleton
 
-@Singleton
+@FeatureScope
 class HomeRepository @Inject constructor(private val furnitureDao: FurnitureDao,
                                          private val mockHelper: MockHelper) {
 
