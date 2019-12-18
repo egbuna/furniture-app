@@ -16,6 +16,7 @@ import com.ncapdevi.fragnav.FragNavTransactionOptions
 abstract class BaseActivity : AppCompatActivity() {
 
     var mNavController: FragNavController? = null
+    private var onBackClickedListener: OnBackClicked? = null
      lateinit var appComponent: AppComponent
         private set
 
@@ -62,8 +63,22 @@ abstract class BaseActivity : AppCompatActivity() {
         mNavController?.clearDialogFragment()
     }
 
+    override fun onBackPressed() {
+        if (mNavController == null || mNavController?.isRootFragment!!)
+            super.onBackPressed()
+        else {
+            if (onBackClickedListener != null)
+                onBackClickedListener?.onBackClicked()
+            mNavController?.popFragment()
+        }
+    }
+
     fun popFragments(depth: Int = 0) {
         if (depth > 0) mNavController?.popFragments(depth) else mNavController?.popFragment()
+    }
+
+    interface OnBackClicked {
+        fun onBackClicked()
     }
 
     abstract fun bindViews()

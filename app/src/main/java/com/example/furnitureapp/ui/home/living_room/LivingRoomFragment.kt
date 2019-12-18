@@ -18,12 +18,14 @@ import com.example.furnitureapp.MyApplication
 import com.example.furnitureapp.R
 import com.example.furnitureapp.base.BaseFragment
 import com.example.furnitureapp.data.mock.MockHelper
+import com.example.furnitureapp.data.model.HomeItem
 import com.example.furnitureapp.di.inject
+import com.example.furnitureapp.ui.detail.DetailFragment
 import com.example.furnitureapp.ui.home.HomeItemAdapter
 import com.example.furnitureapp.ui.home.HomeViewModel
 import javax.inject.Inject
 
-class LivingRoomFragment : BaseFragment() {
+class LivingRoomFragment : BaseFragment(), HomeItemAdapter.OnItemClickedListener {
 
     @Inject
     lateinit var mHomeViewModel: HomeViewModel
@@ -45,6 +47,7 @@ class LivingRoomFragment : BaseFragment() {
     override fun setUp(view: View) {
 
         mPopularAdapter = HomeItemAdapter(context!!)
+        mPopularAdapter.onItemClickedListener = this
         mLinearLayoutManager = LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false)
         mPopularRecyclerView.setHasFixedSize(true)
         mPopularRecyclerView.layoutManager = mLinearLayoutManager
@@ -53,6 +56,7 @@ class LivingRoomFragment : BaseFragment() {
 
         //New Arrival
         mNewArrivalAdapter = HomeItemAdapter(context!!)
+        mNewArrivalAdapter.onItemClickedListener = this
         mLinearLayoutManager = LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false)
         mNewArrivalRecyclerView.setHasFixedSize(true)
         mNewArrivalRecyclerView.layoutManager = mLinearLayoutManager
@@ -74,6 +78,10 @@ class LivingRoomFragment : BaseFragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
             inject(application = (activity?.application as MyApplication))
+    }
+
+    override fun onItemClicked(homeItem: HomeItem) {
+        baseActivity.pushFragment(DetailFragment.newInstance(homeItem))
     }
 
     companion object {

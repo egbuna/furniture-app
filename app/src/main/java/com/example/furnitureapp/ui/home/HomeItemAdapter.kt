@@ -15,6 +15,7 @@ import com.github.siyamed.shapeimageview.RoundedImageView
 class HomeItemAdapter(val context: Context) : RecyclerView.Adapter<HomeItemAdapter.ViewHolder>()  {
 
     var items: ArrayList<HomeItem> = arrayListOf()
+    lateinit var onItemClickedListener: OnItemClickedListener
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.home_list_item, parent, false)
@@ -39,6 +40,8 @@ class HomeItemAdapter(val context: Context) : RecyclerView.Adapter<HomeItemAdapt
 
         fun bind(position: Int) {
             with(items[position]) {
+                mProductImageView.setOnClickListener { onItemClickedListener.onItemClicked(homeItem = this) }
+
                 Glide.with(context)
                     .load(this.image)
                     .apply(
@@ -49,5 +52,9 @@ class HomeItemAdapter(val context: Context) : RecyclerView.Adapter<HomeItemAdapt
                     .into(mProductImageView)
             }
         }
+    }
+
+    interface OnItemClickedListener {
+        fun onItemClicked(homeItem: HomeItem)
     }
 }
