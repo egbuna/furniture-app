@@ -44,9 +44,8 @@ dependencies {
     implementation 'com.ncapdevi:frag-nav:3.0.0-RC3'
 
     // Room
-    implementation "androidx.room:room-runtime:$roomVersion"
+
     kapt "androidx.room:room-compiler:$roomVersion"
-    implementation "androidx.room:room-ktx:$roomVersion"
     androidTestImplementation "androidx.room:room-testing:$roomVersion"
 
     // Lifecycle (ViewModel + LiveData)

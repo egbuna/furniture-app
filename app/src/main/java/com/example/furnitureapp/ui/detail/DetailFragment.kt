@@ -1,21 +1,29 @@
 package com.example.furnitureapp.ui.detail
 
+import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 
 import com.example.furnitureapp.R
 import com.example.furnitureapp.base.BaseFragment
-import com.example.furnitureapp.data.model.HomeItem
+import com.example.core.model.HomeItem
+import com.example.furnitureapp.MyApplication
+import com.example.furnitureapp.di.inject
 import kotlinx.android.synthetic.main.fragment_detail.*
+import javax.inject.Inject
 
 class DetailFragment : BaseFragment() {
+
+    @Inject
+    lateinit var detailViewModel: ItemDetailViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,6 +35,11 @@ class DetailFragment : BaseFragment() {
 
     override fun bindViews(views: View) {
 
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        inject(application = (activity?.application as MyApplication), fragment = this)
     }
 
     override fun setUp(view: View) {
@@ -45,7 +58,10 @@ class DetailFragment : BaseFragment() {
 
         cancel.setOnClickListener { baseActivity.onBackPressed() }
 
-        add_to_cart.setOnClickListener { Toast.makeText(context, "Added to cart", Toast.LENGTH_LONG).show() }
+        add_to_cart.setOnClickListener {
+            detailViewModel.saveItemToCart(HomeItem.mapToCartItem(homeItem!!))
+            Toast.makeText(context, "Added to cart", Toast.LENGTH_LONG).show()
+        }
     }
 
     companion object {

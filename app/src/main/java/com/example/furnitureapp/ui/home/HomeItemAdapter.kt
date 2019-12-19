@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.example.furnitureapp.R
-import com.example.furnitureapp.data.model.HomeItem
+import com.example.core.model.HomeItem
 import com.github.siyamed.shapeimageview.RoundedImageView
 
 class HomeItemAdapter(val context: Context) : RecyclerView.Adapter<HomeItemAdapter.ViewHolder>()  {

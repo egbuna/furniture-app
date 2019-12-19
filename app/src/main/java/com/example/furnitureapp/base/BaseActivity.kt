@@ -17,13 +17,8 @@ abstract class BaseActivity : AppCompatActivity() {
 
     var mNavController: FragNavController? = null
     private var onBackClickedListener: OnBackClicked? = null
-     lateinit var appComponent: AppComponent
-        private set
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        appComponent = DaggerAppComponent.builder()
-            .application(application as MyApplication)
-            .build()
         super.onCreate(savedInstanceState)
     }
 

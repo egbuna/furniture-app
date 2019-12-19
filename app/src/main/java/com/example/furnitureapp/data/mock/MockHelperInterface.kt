@@ -1,6 +1,6 @@
 package com.example.furnitureapp.data.mock
 
-import com.example.furnitureapp.data.model.HomeItem
+import com.example.core.model.HomeItem
 
 interface MockHelperInterface {
     fun mockPopularItems(): ArrayList<HomeItem>

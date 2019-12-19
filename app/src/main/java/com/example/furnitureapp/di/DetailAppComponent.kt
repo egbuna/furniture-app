@@ -1,23 +1,20 @@
 package com.example.furnitureapp.di
 
 import android.app.Application
-import androidx.fragment.app.Fragment
 import com.example.core.dagger.BaseComponent
-import com.example.core.dagger.CoreComponent
 import com.example.core.dagger.scope.FeatureScope
-import com.example.furnitureapp.ui.home.living_room.LivingRoomFragment
+import com.example.furnitureapp.ui.detail.DetailFragment
 import dagger.BindsInstance
 import dagger.Component
-import javax.inject.Singleton
 
 @FeatureScope
-@Component(modules = [FurnitureDatabaseModule::class, MockModule::class])
-interface AppComponent : BaseComponent<LivingRoomFragment>{
+@Component(modules = [FurnitureDatabaseModule::class])
+interface DetailAppComponent : BaseComponent<DetailFragment> {
 
     @Component.Builder
     interface Builder {
         @BindsInstance
         fun application(application: Application): Builder
-        fun build(): AppComponent
+        fun build(): DetailAppComponent
     }
 }
