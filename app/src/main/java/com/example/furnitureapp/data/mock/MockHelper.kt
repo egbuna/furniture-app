@@ -21,21 +21,21 @@ class MockHelper @Inject constructor() : MockHelperInterface {
             description = "All in on table",
             rating = "4.0",
             image = "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3300&q=80",
-            price = "5000"
+            price = "4000"
         )
         popularItems += HomeItem(
             name = "Stool",
             description = "All in on table",
             rating = "4.0",
             image = "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3300&q=80",
-            price = "5000"
+            price = "10000"
         )
         popularItems += HomeItem(
             name = "Desk",
             description = "All in on table",
             rating = "4.0",
             image = "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3300&q=80",
-            price = "5000"
+            price = "9000"
         )
 
         return popularItems
@@ -44,32 +44,32 @@ class MockHelper @Inject constructor() : MockHelperInterface {
     override fun mockNewArrivals(): ArrayList<HomeItem> {
         val newArrivals = ArrayList<HomeItem>()
         newArrivals += HomeItem(
-            name = "Table",
+            name = "Bed",
             description = "All in on table",
             rating = "4.0",
             image = "https://images.unsplash.com/photo-1507904953637-96429a46671a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1300&q=80",
-            price = "5000"
+            price = "65000"
         )
         newArrivals += HomeItem(
-            name = "Chair",
+            name = "Couch",
             description = "All in on table",
             rating = "4.0",
             image = "https://images.unsplash.com/photo-1507904953637-96429a46671a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1300&q=80",
-            price = "5000"
+            price = "15000"
         )
         newArrivals += HomeItem(
-            name = "Stool",
+            name = "Soufer",
             description = "All in on table",
             rating = "4.0",
             image = "https://images.unsplash.com/photo-1507904953637-96429a46671a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1300&q=80",
-            price = "5000"
+            price = "25000"
         )
         newArrivals += HomeItem(
-            name = "Desk",
+            name = "Dinning Set",
             description = "All in on table",
             rating = "4.0",
             image = "https://images.unsplash.com/photo-1507904953637-96429a46671a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1300&q=80",
-            price = "5000"
+            price = "55000"
         )
 
         return newArrivals

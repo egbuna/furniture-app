@@ -1,4 +1,4 @@
-package com.example.furnitureapp.di
+package com.example.cart.dagger
 
 import android.app.Application
 import com.example.core.dagger.scope.FeatureScope
@@ -8,11 +8,11 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class FurnitureDatabaseModule {
+class CartDatabaseModule(private  val application: Application) {
 
     @FeatureScope
     @Provides
-    fun provideDatabase(app: Application): AppRoomDatabase = AppRoomDatabase.buildDefault(app)
+    fun provideDatabase(): AppRoomDatabase = AppRoomDatabase.buildDefault(application)
 
     @FeatureScope
     @Provides

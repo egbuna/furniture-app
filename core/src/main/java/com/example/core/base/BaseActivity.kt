@@ -1,4 +1,4 @@
-package com.example.furnitureapp.base
+package com.example.core.base
 
 import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
@@ -7,9 +7,6 @@ import android.view.View
 import androidx.annotation.IdRes
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
-import com.example.furnitureapp.MyApplication
-import com.example.furnitureapp.di.AppComponent
-import com.example.furnitureapp.di.DaggerAppComponent
 import com.ncapdevi.fragnav.FragNavController
 import com.ncapdevi.fragnav.FragNavTransactionOptions
 

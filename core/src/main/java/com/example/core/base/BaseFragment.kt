@@ -1,15 +1,11 @@
-package com.example.furnitureapp.base
+package com.example.core.base
 
 
 import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
 import androidx.annotation.IdRes
-import com.example.furnitureapp.R
 
 abstract class BaseFragment : Fragment() {
 

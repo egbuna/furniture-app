@@ -1,14 +1,12 @@
 package com.example.furnitureapp.di
 
 import android.app.Application
-import androidx.fragment.app.Fragment
 import com.example.core.dagger.BaseComponent
-import com.example.core.dagger.CoreComponent
+import com.example.core.dagger.FurnitureDatabaseModule
 import com.example.core.dagger.scope.FeatureScope
 import com.example.furnitureapp.ui.home.living_room.LivingRoomFragment
 import dagger.BindsInstance
 import dagger.Component
-import javax.inject.Singleton
 
 @FeatureScope
 @Component(modules = [FurnitureDatabaseModule::class, MockModule::class])

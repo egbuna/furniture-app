@@ -2,14 +2,13 @@ package com.example.furnitureapp.ui.home
 
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager.widget.ViewPager
 
 import com.example.furnitureapp.R
-import com.example.furnitureapp.base.BaseFragment
+import com.example.core.base.BaseFragment
 import com.example.furnitureapp.ui.home.bathroom.BathRoomFragment
 import com.example.furnitureapp.ui.home.living_room.LivingRoomFragment
 import com.example.furnitureapp.utils.CustomPagerAdapter

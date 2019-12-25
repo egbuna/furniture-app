@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.furnitureapp.MyApplication
 
 import com.example.furnitureapp.R
-import com.example.furnitureapp.base.BaseFragment
+import com.example.core.base.BaseFragment
 import com.example.furnitureapp.data.mock.MockHelper
 import com.example.core.model.HomeItem
 import com.example.furnitureapp.di.inject
