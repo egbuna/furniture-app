@@ -1,5 +1,6 @@
 package com.example.furnitureapp.ui.detail
 
+import android.app.Application
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
+import com.example.cart.dagger.inject
 
 import com.example.furnitureapp.R
 import com.example.core.base.BaseFragment
@@ -21,6 +23,9 @@ class DetailFragment : BaseFragment() {
 
     @Inject
     lateinit var detailViewModel: ItemDetailViewModel
+
+//    @Inject
+//    lateinit var application: MyApplication
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,7 +41,7 @@ class DetailFragment : BaseFragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        inject(application = (activity?.application as MyApplication), fragment = this)
+        inject(application = activity?.application as MyApplication, fragment = this)
     }
 
     override fun setUp(view: View) {

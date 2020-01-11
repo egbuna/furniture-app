@@ -8,6 +8,7 @@ import androidx.room.Query
 import com.example.core.dagger.scope.FeatureScope
 import com.example.core.model.CartHomeItem
 import com.example.core.model.HomeItem
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 @FeatureScope
@@ -26,5 +27,5 @@ interface FurnitureDao {
     suspend fun saveFurnitureToCart(cartHomeItem: CartHomeItem)
 
     @Query("select * from cart")
-    fun fetchAllCartItem(): List<CartHomeItem>
+    fun fetchAllCartItem(): LiveData<List<CartHomeItem>>
 }

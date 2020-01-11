@@ -8,13 +8,10 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class FurnitureDatabaseModule {
+class FurnitureDatabaseModule(val application: Application) {
 
-    @FeatureScope
-    @Provides
-    fun provideDatabase(app: Application): AppRoomDatabase = AppRoomDatabase.buildDefault(app)
+//    @Provides
+//    @FeatureScope
+//    fun provideApplication(): Application = application
 
-    @FeatureScope
-    @Provides
-    fun provideFurnitureDao(db: AppRoomDatabase): FurnitureDao = db.furnitureDao()
 }

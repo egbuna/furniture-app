@@ -1,5 +1,6 @@
 package com.example.core.dagger
 
+import android.app.Application
 import com.google.gson.Gson
 import dagger.Component
 import okhttp3.OkHttpClient
@@ -12,6 +13,8 @@ interface CoreComponent {
 
     @Component.Builder
     interface Builder {
+        //fun application(): Application
+        fun coreDataModule(coreDataModule: CoreDataModule): Builder
         fun build(): CoreComponent
     }
 

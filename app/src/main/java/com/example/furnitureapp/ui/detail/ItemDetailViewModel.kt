@@ -10,5 +10,5 @@ class ItemDetailViewModel @Inject constructor(private val homeRepository: ItemDe
 
     fun saveItemToCart(cartHomeItem: CartHomeItem) = homeRepository.saveToCart(cartHomeItem)
 
-    fun getAllCartItem(): LiveData<List<CartHomeItem>> = homeRepository.getAllCartItem().asLiveData()
+    //fun getAllCartItem(): LiveData<List<CartHomeItem>> = homeRepository.getAllCartItem().asLiveData()
 }
