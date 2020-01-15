@@ -21,9 +21,8 @@ This app is written in Kotlin
 * Architechture Components
 * Dagger 2
 * Coroutine
-* Flow
 
 <b>MVVM Architecture</b>
 
-This application uses the Model-View-Viewmodel (MVVM) architecture and therefore relies on ViewModel and coroutine flows 
+This application uses the Model-View-Viewmodel (MVVM) architecture and therefore relies on ViewModel, coroutine and livedata 
 for changes to the database which then in turn update the views based on that change.
