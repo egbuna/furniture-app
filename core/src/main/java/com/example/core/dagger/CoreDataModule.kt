@@ -7,6 +7,7 @@ import com.example.core.dagger.scope.FeatureScope
 import com.example.core.data.AppRoomDatabase
 import com.example.core.data.dao.FurnitureDao
 import com.google.gson.Gson
+import dagger.Binds
 import dagger.Lazy
 import dagger.Module
 import dagger.Provides
@@ -17,19 +18,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 @Module
-class CoreDataModule(val application: Application) {
-
-    @Provides
-    @FeatureScope
-    fun provideContext(): Context = application
-
-    @Provides
-    @FeatureScope
-    fun provideApplication(): Application = application
-
-//    @Provides
-//    @FeatureScope
-//    fun provideCoreApplication()
+class CoreDataModule {
 
     @Provides
     fun provideOkhttpClient(interceptor: HttpLoggingInterceptor): OkHttpClient =
@@ -65,13 +54,4 @@ class CoreDataModule(val application: Application) {
     }
 
     private val ENDPOINT = ""
-
-    @FeatureScope
-    @Provides
-    fun provideDatabase(app: Application): AppRoomDatabase = AppRoomDatabase.buildDefault(application)
-
-    @FeatureScope
-    @Provides
-    fun provideFurnitureDao(db: AppRoomDatabase): FurnitureDao = db.furnitureDao()
-
 }

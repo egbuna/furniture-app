@@ -1,6 +1,7 @@
 package com.example.furnitureapp.ui.home
 
 
+import android.app.Application
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,8 +14,10 @@ import com.example.furnitureapp.ui.home.bathroom.BathRoomFragment
 import com.example.furnitureapp.ui.home.living_room.LivingRoomFragment
 import com.example.furnitureapp.utils.CustomPagerAdapter
 import com.ogaclejapan.smarttablayout.SmartTabLayout
+import javax.inject.Inject
 
 class HomeFragment : BaseFragment() {
+
     override fun bindViews(views: View) {
         mViewPager = views.findViewById(R.id.viewpager)
         mSmartTabLayout = views.findViewById(R.id.viewpagertab)

@@ -9,4 +9,6 @@ import javax.inject.Inject
 class CartViewModel @Inject constructor(private val cartRepository: CartRepository) : ViewModel() {
 
     fun getAllCartItem(): LiveData<List<CartHomeItem>> = cartRepository.getAllCartItem()
+
+    fun deleteCartItem(itemName: String) = cartRepository.deleteCartItem(itemName)
 }
