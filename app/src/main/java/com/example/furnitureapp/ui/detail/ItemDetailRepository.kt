@@ -1,14 +1,11 @@
 package com.example.furnitureapp.ui.detail
 
 import android.util.Log
-import androidx.lifecycle.LiveData
 import com.example.core.dagger.scope.FeatureScope
 import com.example.core.data.CoroutinesDispatcherProvider
 import com.example.core.data.dao.FurnitureDao
 import com.example.core.model.CartHomeItem
-import com.example.furnitureapp.data.mock.MockHelper
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn

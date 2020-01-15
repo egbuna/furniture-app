@@ -13,7 +13,7 @@ import com.example.furnitureapp.MyApplication
 
 import com.example.furnitureapp.R
 import com.example.core.base.BaseFragment
-import com.example.furnitureapp.data.mock.MockHelper
+import com.example.core.mock.MockHelper
 import com.example.core.model.HomeItem
 import com.example.furnitureapp.di.inject
 import com.example.furnitureapp.ui.detail.DetailFragment

@@ -1,4 +1,4 @@
-package com.example.furnitureapp.data.mock
+package com.example.core.mock
 
 import com.example.core.dagger.scope.FeatureScope
 import com.example.core.model.HomeItem

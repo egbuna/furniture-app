@@ -1,7 +1,7 @@
-package com.example.furnitureapp.di
+package com.example.core.dagger
 
-import com.example.furnitureapp.data.mock.MockHelper
-import com.example.furnitureapp.data.mock.MockHelperInterface
+import com.example.core.mock.MockHelper
+import com.example.core.mock.MockHelperInterface
 import dagger.Binds
 import dagger.Module
 

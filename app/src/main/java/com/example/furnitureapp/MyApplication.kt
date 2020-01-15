@@ -20,5 +20,6 @@ class MyApplication : Application() {
             (context.applicationContext as MyApplication).appComponent
     }
 
-    fun Activity.coreComponent() = MyApplication.coreComponent(this)
+    fun Activity.coreComponent() =
+        coreComponent(this)
 }

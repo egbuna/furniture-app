@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
@@ -44,6 +43,8 @@ class DetailFragment : BaseFragment() {
         val homeItem = arguments?.getParcelable<HomeItem>("HomeItem")
         with(homeItem) {
             rating_text.text = this?.rating
+            product_name.text = this?.name
+            product_price.text = "\$${this?.price}"
             Glide.with(context!!)
                 .load(this?.image)
                 .apply(
