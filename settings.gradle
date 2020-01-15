@@ -1,2 +1,5 @@
 include ':app'
 rootProject.name='Furniture App'
+include ':core'
+include ':profile'
+include ':cart'

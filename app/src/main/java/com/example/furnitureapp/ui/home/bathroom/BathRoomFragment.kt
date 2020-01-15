@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.example.furnitureapp.R
-import com.example.furnitureapp.base.BaseFragment
+import com.example.core.base.BaseFragment
 
 class BathRoomFragment : BaseFragment() {
     override fun bindViews(views: View) {

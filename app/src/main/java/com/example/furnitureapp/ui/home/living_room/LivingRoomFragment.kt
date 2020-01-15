@@ -3,25 +3,25 @@ package com.example.furnitureapp.ui.home.living_room
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.furnitureapp.MainActivity
 import com.example.furnitureapp.MyApplication
 
 import com.example.furnitureapp.R
-import com.example.furnitureapp.base.BaseFragment
+import com.example.core.base.BaseFragment
 import com.example.furnitureapp.data.mock.MockHelper
+import com.example.core.model.HomeItem
+import com.example.furnitureapp.di.inject
+import com.example.furnitureapp.ui.detail.DetailFragment
 import com.example.furnitureapp.ui.home.HomeItemAdapter
 import com.example.furnitureapp.ui.home.HomeViewModel
 import javax.inject.Inject
 
-class LivingRoomFragment : BaseFragment() {
+class LivingRoomFragment : BaseFragment(), HomeItemAdapter.OnItemClickedListener {
 
     @Inject
     lateinit var mHomeViewModel: HomeViewModel
@@ -43,6 +43,7 @@ class LivingRoomFragment : BaseFragment() {
     override fun setUp(view: View) {
 
         mPopularAdapter = HomeItemAdapter(context!!)
+        mPopularAdapter.onItemClickedListener = this
         mLinearLayoutManager = LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false)
         mPopularRecyclerView.setHasFixedSize(true)
         mPopularRecyclerView.layoutManager = mLinearLayoutManager
@@ -51,6 +52,7 @@ class LivingRoomFragment : BaseFragment() {
 
         //New Arrival
         mNewArrivalAdapter = HomeItemAdapter(context!!)
+        mNewArrivalAdapter.onItemClickedListener = this
         mLinearLayoutManager = LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false)
         mNewArrivalRecyclerView.setHasFixedSize(true)
         mNewArrivalRecyclerView.layoutManager = mLinearLayoutManager
@@ -63,15 +65,17 @@ class LivingRoomFragment : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?): View? {
-
-
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_living_room, container, false)
     }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        (activity!!.application as MyApplication).appComponent.inject(this)
+            inject(application = (activity?.application as MyApplication), fragment = this)
+    }
+
+    override fun onItemClicked(homeItem: HomeItem) {
+        baseActivity.pushFragment(DetailFragment.newInstance(homeItem))
     }
 
     companion object {
