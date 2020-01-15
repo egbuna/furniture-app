@@ -19,12 +19,14 @@
         android:layout_height="wrap_content"
         tools:text="Colored chair"
         android:textSize="14sp"
+        android:maxLines="1"
+        android:ellipsize="end"
         android:textAllCaps="true"
         android:textColor="@android:color/black"
         android:layout_marginStart="20dp"
         app:layout_constraintTop_toTopOf="@+id/furniture_image"
         app:layout_constraintStart_toEndOf="@+id/furniture_image"
-        app:layout_constraintEnd_toStartOf="@id/guidelineRight"/>
+        app:layout_constraintEnd_toStartOf="@id/delete_item"/>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/price"
@@ -40,6 +42,7 @@
         android:layout_height="20dp"
         android:scaleType="centerCrop"
         android:layout_marginTop="20dp"
+        android:visibility="invisible"
         android:background="@android:color/transparent"
         android:src="@drawable/favorite"
         app:layout_constraintTop_toBottomOf="@+id/furniture_image"
@@ -56,6 +59,15 @@
         app:layout_constraintTop_toTopOf="@+id/favourite_image"
         app:layout_constraintBottom_toBottomOf="@+id/favourite_image"
         app:layout_constraintStart_toEndOf="@+id/favourite_image"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/delete_item"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:srcCompat="@drawable/ic_clear_black_24dp"
+        app:layout_constraintEnd_toEndOf="@+id/guidelineRight"
+        app:layout_constraintTop_toTopOf="@+id/furniture_name"
+        app:layout_constraintBottom_toBottomOf="@+id/furniture_name"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineTop"

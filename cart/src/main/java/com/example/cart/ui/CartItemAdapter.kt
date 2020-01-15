@@ -13,6 +13,7 @@ import com.example.core.model.CartHomeItem
 class CartItemAdapter(val context: Context) : RecyclerView.Adapter<CartItemAdapter.ViewHolder>() {
 
     var items: ArrayList<CartHomeItem> = arrayListOf()
+    lateinit var deleteItemListener: DeleteItemListener
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.cart_item, parent, false)
@@ -37,10 +38,12 @@ class CartItemAdapter(val context: Context) : RecyclerView.Adapter<CartItemAdapt
         private val mProductImageView: ImageView = itemView.findViewById(R.id.furniture_image)
         private val mProductName: TextView = itemView.findViewById(R.id.furniture_name)
         private val productPrice: TextView = itemView.findViewById(R.id.price)
+        private val deleteCartItem: ImageView = itemView.findViewById(R.id.delete_item)
 
         fun bind(position: Int) {
             with(items[position]) {
                 //mProductImageView.setOnClickListener { onItemClickedListener.onItemClicked(homeItem = this) }
+                deleteCartItem.setOnClickListener {deleteItemListener.onDeleteItemClicked(this.name)}
                 mProductName.text = this.name
                 productPrice.text = "\$${this.price.toFloat()}"
 
@@ -54,5 +57,9 @@ class CartItemAdapter(val context: Context) : RecyclerView.Adapter<CartItemAdapt
                     .into(mProductImageView)
             }
         }
+    }
+
+    interface DeleteItemListener {
+        fun onDeleteItemClicked(itemName: String)
     }
 }

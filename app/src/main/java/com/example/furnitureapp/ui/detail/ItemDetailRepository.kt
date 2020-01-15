@@ -24,14 +24,6 @@ class ItemDetailRepository @Inject constructor(private val furnitureDao: Furnitu
             } catch (e : SQLDataException) {
                 print(e.message)
             }
-            Log.e("SAVED_CART", "saved to cart")
         }
-    }
-
-    fun getAllCartItem(): Flow<List<CartHomeItem>> {
-        return flow {
-            val cartItems = furnitureDao.fetchAllCartItem()
-            emit(cartItems)
-        }.flowOn(dispatcherProvider.io)
     }
 }

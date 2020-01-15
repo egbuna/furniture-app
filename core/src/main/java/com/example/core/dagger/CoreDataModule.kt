@@ -1,7 +1,13 @@
 package com.example.core.dagger
 
+import android.app.Application
+import android.content.Context
 import com.example.core.BuildConfig
+import com.example.core.dagger.scope.FeatureScope
+import com.example.core.data.AppRoomDatabase
+import com.example.core.data.dao.FurnitureDao
 import com.google.gson.Gson
+import dagger.Binds
 import dagger.Lazy
 import dagger.Module
 import dagger.Provides

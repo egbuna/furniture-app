@@ -12,7 +12,6 @@ import com.bumptech.glide.request.RequestOptions
 import com.example.furnitureapp.R
 import com.example.core.base.BaseFragment
 import com.example.core.model.HomeItem
-import com.example.furnitureapp.MyApplication
 import com.example.furnitureapp.di.inject
 import kotlinx.android.synthetic.main.fragment_detail.*
 import javax.inject.Inject
@@ -36,7 +35,7 @@ class DetailFragment : BaseFragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        inject(application = (activity?.application as MyApplication), fragment = this)
+        inject(fragment = this)
     }
 
     override fun setUp(view: View) {

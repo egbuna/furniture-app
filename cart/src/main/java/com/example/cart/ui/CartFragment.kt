@@ -14,7 +14,7 @@ import com.example.core.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_cart.*
 import javax.inject.Inject
 
-class CartFragment : BaseFragment() {
+class CartFragment : BaseFragment(), CartItemAdapter.DeleteItemListener {
 
     @Inject
     lateinit var mCartViewModel: CartViewModel
@@ -28,6 +28,7 @@ class CartFragment : BaseFragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_cart, container, false)
         mCartItemAdapter = CartItemAdapter(context!!)
+        mCartItemAdapter.deleteItemListener = this
         mCartRecyclerView = view.findViewById(R.id.cart_item_recycler_view)
         mCartRecyclerView.setHasFixedSize(true)
         mCartRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
@@ -42,7 +43,7 @@ class CartFragment : BaseFragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        inject(this, baseActivity.application)
+        inject(this)
     }
 
     override fun setUp(view: View) {
@@ -60,5 +61,9 @@ class CartFragment : BaseFragment() {
         fun newInstance(): CartFragment {
             return CartFragment()
         }
+    }
+
+    override fun onDeleteItemClicked(itemName: String) {
+        mCartViewModel.deleteCartItem(itemName = itemName)
     }
 }

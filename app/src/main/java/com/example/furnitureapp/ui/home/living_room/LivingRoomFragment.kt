@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.furnitureapp.MyApplication
 
 import com.example.furnitureapp.R
 import com.example.core.base.BaseFragment
@@ -71,7 +70,7 @@ class LivingRoomFragment : BaseFragment(), HomeItemAdapter.OnItemClickedListener
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-            inject(application = (activity?.application as MyApplication), fragment = this)
+            inject(fragment = this)
     }
 
     override fun onItemClicked(homeItem: HomeItem) {

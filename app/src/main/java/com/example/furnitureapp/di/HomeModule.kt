@@ -7,6 +7,7 @@ import com.example.furnitureapp.ui.home.HomeViewModelFactory
 import com.example.furnitureapp.ui.home.living_room.LivingRoomFragment
 import dagger.Module
 import dagger.Provides
+import javax.inject.Singleton
 
 @Module
 class HomeModule(private val T: LivingRoomFragment) {
